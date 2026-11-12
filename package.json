@@ -1,0 +1,7 @@
+{
+  "name": "ruta-urbana-landing",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": { "start": "node server.cjs" },
+  "engines": { "node": ">=22" }
+}
