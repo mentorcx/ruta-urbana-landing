@@ -40,7 +40,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
 .section-label{display:flex;align-items:center;gap:11px;color:#496155}
 .label-line{width:28px;height:2px;background:var(--clay)}
 .label-separator{color:var(--clay)}
-.hero h1{font:900 clamp(52px,6.15vw,105px)/.98 var(--display);letter-spacing:-.079em;margin:35px 0 25px}
+.hero h1{font:900 clamp(38px,4.6vw,72px)/1.08 var(--display);letter-spacing:-.065em;margin:35px 0 25px;text-wrap:balance}
 h1 em,h2 em{font-style:normal;color:var(--clay)}
 .hero-lead{font-size:clamp(19px,2vw,26px);line-height:1.4;letter-spacing:-.025em;max-width:500px;margin:0 0 14px;font-weight:600}
 .hero-desc{font-size:14px;max-width:430px;color:var(--ink-muted);margin:0;line-height:1.75}
@@ -155,7 +155,7 @@ h2{font:900 clamp(44px,5.4vw,80px)/1.03 var(--display);letter-spacing:-.065em;ma
   .site-header{padding:0 4vw}
   .section-wrap{padding-inline:4vw}
   .hero-content{padding-left:4vw}
-  .hero h1{font-size:clamp(49px,6vw,76px)}
+  .hero h1{font-size:clamp(36px,4.6vw,62px)}
   .hero-visual img{min-height:0}
   .feature-strip{padding-inline:4vw}
   .feature-strip>div{padding-inline:12px}
@@ -173,7 +173,7 @@ h2{font:900 clamp(44px,5.4vw,80px)/1.03 var(--display);letter-spacing:-.065em;ma
   .main-nav{display:none}
   .hero{grid-template-columns:1fr}
   .hero-content{padding:75px 6vw 35px}
-  .hero h1{font-size:clamp(60px,12vw,96px);margin-top:25px}
+  .hero h1{font-size:clamp(43px,8vw,70px);margin-top:25px}
   .hero-footnote{padding-top:36px}
   .hero-visual{height:clamp(460px,85vw,680px)}
   .hero-visual img{height:100%;min-height:0}
@@ -202,7 +202,7 @@ h2{font:900 clamp(44px,5.4vw,80px)/1.03 var(--display);letter-spacing:-.065em;ma
   .wordmark-mark{height:33px;width:33px}
   .nav-cta{gap:8px;font-size:11px}
   .hero-content{padding-top:55px}
-  .hero h1{font-size:clamp(53px,12.8vw,72px)}
+  .hero h1{font-size:clamp(36px,9vw,50px)}
   .hero-lead{font-size:21px}
   .hero-visual{padding:14px}
   .gallery-stage{padding:12px}
@@ -219,3 +219,22 @@ h2{font:900 clamp(44px,5.4vw,80px)/1.03 var(--display);letter-spacing:-.065em;ma
   .footer-bottom{flex-direction:column;gap:6px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+
+/* Product color selector, zoom and contact CTA */
+.gallery-stage{isolation:isolate}
+.gallery-zoom{position:absolute;right:18px;top:18px;z-index:5;display:flex;align-items:center;gap:8px;padding:10px 14px;border:1px solid var(--line);background:#fffdf8;color:var(--ink);font-size:13px;font-weight:800}
+.gallery-zoom:hover{background:#fff}
+.swatch-row{gap:12px;flex-wrap:wrap}
+.color-option{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;background:transparent;border:1px solid transparent;color:var(--ink);font-size:12px;font-weight:700}
+.color-option.is-selected{border-color:var(--ink);background:#fffdf8}
+.color-option .swatch-gray{margin-left:0}
+.gallery-stage>img.color-preview-gray{filter:grayscale(1) brightness(1.5) contrast(.8);mix-blend-mode:normal}
+.image-lightbox{border:0;padding:22px;width:min(94vw,1100px);max-height:94dvh;background:#f4f1ea;color:var(--ink);box-shadow:0 24px 80px #0008;text-align:center}
+.image-lightbox::backdrop{background:#0c1712dd}
+.image-lightbox img{display:block;max-width:100%;max-height:calc(94dvh - 105px);width:auto;height:auto;object-fit:contain;margin:auto}
+.image-lightbox img.color-preview-gray{filter:grayscale(1) brightness(1.5) contrast(.8)}
+.image-lightbox p{margin:8px 0 0;font-size:12px}
+.lightbox-close{position:absolute;right:12px;top:10px;z-index:2;background:var(--ink);color:#fff;border:0;width:42px;height:42px;font-size:28px;line-height:1}
+.whatsapp-float{position:fixed;bottom:22px;right:22px;z-index:30;display:flex;align-items:center;gap:9px;background:#178548;color:white;text-decoration:none;padding:13px 17px;border-radius:100px;box-shadow:0 6px 26px #0003;font-size:13px;font-weight:800}
+.whatsapp-float:hover{background:#106b3a}
+@media(max-width:480px){.gallery-zoom{right:10px;top:10px}.whatsapp-float{bottom:15px;right:15px;padding:13px}}
