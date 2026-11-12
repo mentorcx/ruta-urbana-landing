@@ -13,7 +13,7 @@
 </head>
 <body>
   <a class="skip-link" href="#contenido">Saltar al contenido</a>
-  <div class="demo-bar" role="note">Ruta Urbana · Proyecto demostrativo. Los precios y la compra requieren confirmación.</div>
+  <div class="demo-bar" role="note">Ruta Urbana · Consultá disponibilidad y condiciones antes de comprar.</div>
 
   <header class="site-header">
     <a class="wordmark" href="#inicio" aria-label="Ruta Urbana, ir al inicio">
@@ -32,7 +32,7 @@
     <section class="hero" id="inicio" aria-labelledby="hero-title">
       <div class="hero-content">
         <div class="section-label"><span class="label-line"></span> URBANA 20 <span class="label-separator">/</span> TU COMPAÑERA DE RUTINA</div>
-        <h1 id="hero-title">La ciudad<br>se mueve.<br><em>Vos también.</em></h1>
+        <h1 id="hero-title">La ciudad se mueve.<br><em>Vos también.</em></h1>
         <p class="hero-lead">Una mochila para llevar lo que importa, de la primera clase a la última reunión.</p>
         <p class="hero-desc">20 litros de capacidad, espacio para tu notebook y bolsillos para organizar tus cosas sin complicarte.</p>
         <div class="hero-actions">
@@ -87,6 +87,7 @@
       <div class="product-inner section-wrap">
         <div class="gallery">
           <div class="gallery-stage">
+            <button class="gallery-zoom" type="button" id="gallery-zoom" aria-label="Ampliar imagen para ver detalles">⌕ Ampliar</button>
             <img id="gallery-main" src="/assets/mochila-urbana20-negra.png" alt="Mochila Urbana 20 negra, vista de tres cuartos" width="1122" height="1402" loading="lazy">
             <span class="gallery-label">URBANA / 20</span>
           </div>
@@ -107,8 +108,8 @@
           <p>Una mochila para quienes llevan su día de un lugar a otro. Conocé las medidas, los espacios y el material antes de decidir.</p>
           <div class="color-picker">
             <strong>Colores de catálogo</strong>
-            <div class="swatch-row"><span class="swatch swatch-black" aria-hidden="true"></span> Negro <span class="swatch swatch-gray" aria-hidden="true"></span> Gris</div>
-            <small>Imágenes de producto: color negro. Disponibilidad por confirmar.</small>
+            <div class="swatch-row" role="group" aria-label="Color de la mochila"><button type="button" class="color-option is-selected" data-color="negro" aria-pressed="true"><span class="swatch swatch-black" aria-hidden="true"></span> Negro</button><button type="button" class="color-option" data-color="gris" aria-pressed="false"><span class="swatch swatch-gray" aria-hidden="true"></span> Gris</button></div>
+            <small id="color-note" role="status" aria-live="polite">Imagen original en negro. Disponibilidad por confirmar.</small>
           </div>
           <dl class="spec-list">
             <div><dt>Capacidad</dt><dd>20 litros</dd></div>
@@ -151,10 +152,10 @@
         </div>
         <div class="purchase-card">
           <span class="purchase-card-tag">URBANA 20 · 20 L</span>
-          <p class="price">ARS 79.000</p>
-          <p class="price-context">Precio ficticio de referencia para este ejercicio. No constituye una oferta vigente.</p>
+          <p class="price">ARS 175.000</p>
+          <p class="price-context">Revisá que el importe y el producto coincidan en Mercado Pago antes de pagar.</p>
           <a class="button button-light button-full" id="purchase-action" href="#" hidden>Continuar <span aria-hidden="true">↗</span></a>
-          <p class="purchase-status" id="purchase-status">La compra todavía no está habilitada: falta aprobar el precio comercial y configurar el canal de venta.</p>
+          <p class="purchase-status" id="purchase-status">El pago se realiza en Mercado Pago. Verificá precio, vendedor y condiciones antes de confirmar.</p>
           <p class="purchase-small">La ficha del caso contempla envíos a todo el país; costo y plazo dependen del código postal y deben confirmarse.</p>
         </div>
       </div>
@@ -167,14 +168,20 @@
         <details><summary>¿Cómo sé si entra mi notebook? <span aria-hidden="true">+</span></summary><p>Medí el ancho, alto y grosor de la notebook, incluida la funda si la usás. Comparalos con 36 × 25 × 2 cm. El comprobador de esta página es orientativo.</p></details>
         <details><summary>¿Qué colores hay? <span aria-hidden="true">+</span></summary><p>Negro y gris figuran en el catálogo de referencia. El stock de cada color aún no está confirmado.</p></details>
         <details><summary>¿Cuánto cuesta el envío? <span aria-hidden="true">+</span></summary><p>En el caso didáctico se contemplan envíos a todo el país. El costo y el plazo se calculan según código postal y requieren confirmación.</p></details>
-        <details><summary>¿Puedo comprarla ahora? <span aria-hidden="true">+</span></summary><p>Esta landing es una demostración. La compra quedará disponible cuando se aprueben el precio real, las condiciones y el enlace de compra o contacto.</p></details>
+        <details><summary>¿Puedo comprarla ahora? <span aria-hidden="true">+</span></summary><p>Podés continuar al enlace de Mercado Pago. Verificá el importe y los datos del vendedor antes de pagar; stock y envío requieren confirmación.</p></details>
       </div>
     </section>
   </main>
+  <dialog class="image-lightbox" id="image-lightbox" aria-label="Vista ampliada de la mochila">
+    <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Cerrar imagen ampliada">×</button>
+    <img id="lightbox-image" src="/assets/mochila-urbana20-negra.png" alt="Vista ampliada de Urbana 20">
+    <p id="lightbox-caption">Urbana 20</p>
+  </dialog>
+  <a class="whatsapp-float" id="whatsapp-float" href="#" target="_blank" rel="noopener noreferrer" hidden aria-label="Consultar por WhatsApp">✆ <span>WhatsApp</span></a>
 
   <footer class="site-footer">
     <div class="footer-top"><a class="wordmark wordmark-footer" href="#inicio"><span class="wordmark-mark" aria-hidden="true">R<span>U</span></span><span>RUTA<br>URBANA</span></a><p>Para todo lo que llevás.<br>Para todo lo que viene.</p><a href="#inicio">Volver arriba ↑</a></div>
-    <div class="footer-bottom"><span>© 2026 Ruta Urbana · Caso ficticio de formación</span><span>Demo educativa · Sin pagos habilitados</span></div>
+    <div class="footer-bottom"><span>© 2026 Ruta Urbana</span><span>Pago externo con Mercado Pago</span></div>
   </footer>
 </body>
 </html>
