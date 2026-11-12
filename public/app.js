@@ -21,6 +21,55 @@
     });
   }
 
+
+  const colorButtons = Array.from(document.querySelectorAll(".color-option"));
+  const colorNote = document.getElementById("color-note");
+  const lightbox = document.getElementById("image-lightbox");
+  const lightboxImage = document.getElementById("lightbox-image");
+  const lightboxCaption = document.getElementById("lightbox-caption");
+  const zoomButton = document.getElementById("gallery-zoom");
+  const lightboxClose = document.getElementById("lightbox-close");
+  let selectedColor = "negro";
+
+  function applySelectedColor() {
+    const isProduct = image && image.getAttribute("src") === "/assets/mochila-urbana20-negra.png";
+    const simulated = selectedColor === "gris" && isProduct;
+    if (image) image.classList.toggle("color-preview-gray", simulated);
+    if (colorNote) colorNote.textContent = selectedColor === "gris"
+      ? "Vista gris ilustrativa por filtro digital, no fotografía real. Disponibilidad por confirmar."
+      : "Imagen original en negro. Disponibilidad por confirmar.";
+  }
+
+  colorButtons.forEach((button) => button.addEventListener("click", () => {
+    selectedColor = button.dataset.color === "gris" ? "gris" : "negro";
+    colorButtons.forEach((option) => {
+      const selected = option === button;
+      option.classList.toggle("is-selected", selected);
+      option.setAttribute("aria-pressed", String(selected));
+    });
+    if (image && image.getAttribute("src") !== "/assets/mochila-urbana20-negra.png") {
+      const product = thumbnails.find((item) => item.dataset.image === "/assets/mochila-urbana20-negra.png");
+      if (product) product.click();
+    }
+    applySelectedColor();
+  }));
+  thumbnails.forEach((button) => button.addEventListener("click", applySelectedColor));
+
+  if (zoomButton && lightbox && lightboxImage && image) {
+    zoomButton.addEventListener("click", () => {
+      lightboxImage.src = image.src;
+      lightboxImage.alt = image.alt;
+      lightboxImage.classList.toggle("color-preview-gray", image.classList.contains("color-preview-gray"));
+      if (lightboxCaption) lightboxCaption.textContent = image.alt +
+        (image.classList.contains("color-preview-gray") ? " — gris simulado digitalmente" : "");
+      lightbox.showModal();
+    });
+    if (lightboxClose) lightboxClose.addEventListener("click", () => lightbox.close());
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) lightbox.close();
+    });
+  }
+
   const form = document.getElementById("fit-form");
   const result = document.getElementById("fit-result");
 
@@ -56,6 +105,14 @@
   const purchaseAction = document.getElementById("purchase-action");
   const purchaseStatus = document.getElementById("purchase-status");
 
+  const whatsappFloat = document.getElementById("whatsapp-float");
+  const whatsapp = String(config.whatsappNumber || "").replace(/\\D/g, "");
+  if (/^[1-9]\\d{7,14}$/.test(whatsapp) && whatsappFloat) {
+    const message = "Hola, quiero consultar por la mochila Urbana 20. ¿Tienen disponibilidad y cuánto cuesta el envío?";
+    whatsappFloat.href = "https://wa.me/" + whatsapp + "?text=" + encodeURIComponent(message);
+    whatsappFloat.hidden = false;
+  }
+
   if (!purchaseAction || !purchaseStatus) return;
 
   const safeCheckout = (() => {
@@ -78,7 +135,7 @@
     return;
   }
 
-  const whatsapp = String(config.whatsappNumber || "").replace(/\D/g, "");
+  // El botón de WhatsApp se gestiona de forma independiente del enlace de pago.
   if (/^[1-9]\d{7,14}$/.test(whatsapp)) {
     const message = "Hola, quiero consultar por la mochila Urbana 20. ¿Me confirman el precio y la disponibilidad?";
     purchaseAction.href = "https://wa.me/" + whatsapp + "?text=" + encodeURIComponent(message);
