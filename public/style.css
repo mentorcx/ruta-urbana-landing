@@ -58,8 +58,8 @@ h1 em,h2 em{font-style:normal;color:var(--clay)}
 .text-link-dark{margin-top:14px}
 .hero-footnote{margin-top:auto;padding-top:55px;font-size:10px;letter-spacing:.12em;display:flex;align-items:center;gap:12px;color:#657268}
 .small-square{height:8px;width:8px;background:var(--clay);display:inline-block}
-.hero-visual{position:relative;min-width:0;background:#e7e2d9;overflow:hidden;isolation:isolate}
-.hero-visual img{width:100%;height:100%;max-height:800px;min-height:650px;object-fit:cover;object-position:center 45%;position:relative;z-index:2;mix-blend-mode:multiply}
+.hero-visual{position:relative;min-width:0;background:#e7e2d9;overflow:hidden;isolation:isolate;display:flex;align-items:center;justify-content:center;padding:24px}
+.hero-visual img{width:100%;height:100%;max-height:800px;min-height:0;object-fit:contain;object-position:center center;position:relative;z-index:2;mix-blend-mode:multiply}
 .hero-visual-outline{position:absolute;z-index:1;top:25px;left:0;right:0;text-align:center;font-size:clamp(180px,29vw,420px);font-weight:900;letter-spacing:-.15em;line-height:1;color:#f5f1e9;opacity:.8;white-space:nowrap;transform:translateX(-3%)}
 .hero-visual-outline span{font-size:.46em;vertical-align:top}
 .photo-caption{position:absolute;z-index:3;bottom:22px;left:32px;right:32px;display:flex;justify-content:space-between;gap:12px;font-size:9px;letter-spacing:.12em;font-weight:800;color:#33433a}
@@ -71,8 +71,8 @@ h1 em,h2 em{font-style:normal;color:var(--clay)}
 .feature-strip span{font-size:10px;color:#c4d0c6;line-height:1.5}
 .section-wrap{max-width:1440px;margin-inline:auto;padding-inline:5.4vw}
 .lifestyle{display:grid;grid-template-columns:1fr 1fr;gap:clamp(45px,7vw,120px);padding-top:clamp(72px,11vw,160px);padding-bottom:clamp(72px,11vw,160px);align-items:center}
-.lifestyle-photo{height:clamp(480px,58vw,710px);overflow:hidden;position:relative;background:#e6e1d7}
-.lifestyle-photo img{width:100%;height:100%;object-fit:cover;object-position:center 48%}
+.lifestyle-photo{height:clamp(560px,62vw,760px);overflow:hidden;position:relative;background:#e6e1d7;display:flex;align-items:flex-end;justify-content:center;padding:0 18px}
+.lifestyle-photo img{width:100%;height:100%;object-fit:contain;object-position:center bottom}
 .image-stamp{position:absolute;left:25px;bottom:25px;color:#fff;background:rgba(20,42,35,.86);padding:14px 18px;font-size:11px;line-height:1.4;font-weight:800;letter-spacing:.14em}
 .section-kicker{color:#7a8579;margin:0 0 28px}
 h2{font:900 clamp(44px,5.4vw,80px)/1.03 var(--display);letter-spacing:-.065em;margin:0}
@@ -88,12 +88,12 @@ h2{font:900 clamp(44px,5.4vw,80px)/1.03 var(--display);letter-spacing:-.065em;ma
 .benefit-card p{font-size:14px;color:var(--ink-muted);line-height:1.75;margin:0}
 .product-section{background:var(--sand);padding-top:clamp(60px,8vw,120px);padding-bottom:clamp(60px,8vw,120px)}
 .product-inner{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);gap:clamp(38px,7vw,120px);align-items:center}
-.gallery-stage{height:clamp(450px,51vw,700px);background:#e5e1d8;position:relative;overflow:hidden}
-.gallery-stage>img{width:100%;height:100%;object-fit:cover;object-position:center;mix-blend-mode:multiply}
+.gallery-stage{height:clamp(500px,55vw,760px);background:#e5e1d8;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:20px}
+.gallery-stage>img{width:100%;height:100%;object-fit:contain;object-position:center;mix-blend-mode:multiply}
 .gallery-label{position:absolute;bottom:19px;left:24px;font-size:10px;letter-spacing:.18em;font-weight:800}
 .gallery-thumbs{display:flex;gap:12px;margin-top:13px}
 .gallery-thumb{width:105px;display:flex;flex-direction:column;gap:7px;text-align:left;padding:6px;border:1px solid transparent;background:transparent;color:var(--ink-muted);font-size:10px;font-weight:700}
-.gallery-thumb img{height:84px;width:100%;object-fit:cover;background:#ddd7cd}
+.gallery-thumb img{height:84px;width:100%;object-fit:contain;background:#ddd7cd}
 .gallery-thumb.is-current{border-color:var(--ink);color:var(--ink)}
 .product-category{font-size:12px;font-weight:800;letter-spacing:.15em;margin:0 0 10px;color:#69766d}
 .product-info h2{font-size:clamp(62px,6vw,96px)}
@@ -156,7 +156,7 @@ h2{font:900 clamp(44px,5.4vw,80px)/1.03 var(--display);letter-spacing:-.065em;ma
   .section-wrap{padding-inline:4vw}
   .hero-content{padding-left:4vw}
   .hero h1{font-size:clamp(49px,6vw,76px)}
-  .hero-visual img{min-height:570px}
+  .hero-visual img{min-height:0}
   .feature-strip{padding-inline:4vw}
   .feature-strip>div{padding-inline:12px}
   .feature-strip strong{font-size:17px}
@@ -183,7 +183,7 @@ h2{font:900 clamp(44px,5.4vw,80px)/1.03 var(--display);letter-spacing:-.065em;ma
   .feature-strip>div:nth-child(3){padding-left:0}
   .section-wrap{padding-inline:6vw}
   .lifestyle{grid-template-columns:1fr}
-  .lifestyle-photo{height:600px;max-height:130vw}
+  .lifestyle-photo{height:680px;max-height:none}
   .lifestyle-copy{padding-top:14px}
   .section-heading{flex-direction:column;align-items:start;gap:24px}
   .benefit-grid{grid-template-columns:1fr}
@@ -204,6 +204,9 @@ h2{font:900 clamp(44px,5.4vw,80px)/1.03 var(--display);letter-spacing:-.065em;ma
   .hero-content{padding-top:55px}
   .hero h1{font-size:clamp(53px,12.8vw,72px)}
   .hero-lead{font-size:21px}
+  .hero-visual{padding:14px}
+  .gallery-stage{padding:12px}
+  .lifestyle-photo{padding:0 10px}
   .hero-actions{align-items:flex-start;flex-direction:column;gap:15px}
   .photo-caption{left:14px;right:14px;font-size:8px}
   .feature-strip strong{font-size:16px}
