@@ -106,8 +106,8 @@
   const purchaseStatus = document.getElementById("purchase-status");
 
   const whatsappFloat = document.getElementById("whatsapp-float");
-  const whatsapp = String(config.whatsappNumber || "").replace(/\\D/g, "");
-  if (/^[1-9]\\d{7,14}$/.test(whatsapp) && whatsappFloat) {
+  const whatsapp = String(config.whatsappNumber || "").replace(/\D/g, "");
+  if (/^[1-9]\d{7,14}$/.test(whatsapp) && whatsappFloat) {
     const message = "Hola, quiero consultar por la mochila Urbana 20. ¿Tienen disponibilidad y cuánto cuesta el envío?";
     whatsappFloat.href = "https://wa.me/" + whatsapp + "?text=" + encodeURIComponent(message);
     whatsappFloat.hidden = false;
