@@ -238,3 +238,6 @@ h2{font:900 clamp(44px,5.4vw,80px)/1.03 var(--display);letter-spacing:-.065em;ma
 .whatsapp-float{position:fixed;bottom:22px;right:22px;z-index:30;display:flex;align-items:center;gap:9px;background:#178548;color:white;text-decoration:none;padding:13px 17px;border-radius:100px;box-shadow:0 6px 26px #0003;font-size:13px;font-weight:800}
 .whatsapp-float:hover{background:#106b3a}
 @media(max-width:480px){.gallery-zoom{right:10px;top:10px}.whatsapp-float{bottom:15px;right:15px;padding:13px}}
+
+/* WhatsApp temporal: visible pero sin destino hasta configurar un número real. */
+.whatsapp-float[aria-disabled="true"]{cursor:not-allowed;opacity:.75}
