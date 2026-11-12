@@ -26,3 +26,13 @@
 ## Cómo registrar un cambio
 
 Anotá fecha, necesidad, decisión aprobada, fuente o evidencia, archivos afectados y prueba realizada. Registrá contradicciones como pendientes hasta resolverlas.
+
+## 2026-11-12 · Precio, checkout y mejoras de interacción
+
+**Solicitud del responsable:** mostrar ARS 175.000, conectar https://mpago.la/1RumUCZ, ampliar imágenes con lupa, cambiar el color desde un selector, corregir el salto del titular y agregar WhatsApp.
+
+**Decisión:** se habilita el enlace proporcionado y el precio de ARS 175.000 en la landing. La comprobación de que el enlace de Mercado Pago efectivamente cobra ese importe queda pendiente. Se agrega una lupa con visor modal y un selector negro/gris. **El gris se simula con un filtro digital** sobre la imagen negra existente, con aviso visible; no se presenta como fotografía del producto gris ni como stock confirmado. El título se ajusta a una tipografía más pequeña y a dos frases, evitando cortes forzados dentro de «La ciudad se mueve.».
+
+**WhatsApp:** se incorporó un botón flotante que se activa cuando se configure el número comercial en `public/site-config.js`. No se inventó ningún número.
+
+**Pendientes:** verificar importe y destinatario de Mercado Pago, obtener foto real de la mochila gris, confirmar stock y condiciones comerciales y recibir el número de WhatsApp.
