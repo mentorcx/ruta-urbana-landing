@@ -3,7 +3,17 @@ const fs = require('node:fs/promises');
 const path = require('node:path');
 
 const root = path.join(__dirname, 'public');
-const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8' };
+const types = {
+  '.html': 'text/html; charset=utf-8',
+  '.css': 'text/css; charset=utf-8',
+  '.js': 'text/javascript; charset=utf-8',
+  '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.webp': 'image/webp',
+  '.svg': 'image/svg+xml',
+  '.ico': 'image/x-icon'
+};
 
 const server = http.createServer(async (req, res) => {
   if (!['GET', 'HEAD'].includes(req.method)) {
