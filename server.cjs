@@ -14,7 +14,7 @@ const server = http.createServer(async (req, res) => {
     const pathname = decodeURIComponent(new URL(req.url, 'http://localhost').pathname);
     const file = path.resolve(root, '.' + (pathname === '/' ? '/index.html' : pathname));
     const relative = path.relative(root, file);
-    if (relative.startsWith('..') || path.isAbsolute(relative) || pathname.includes('\')) {
+    if (relative.startsWith('..') || path.isAbsolute(relative) || pathname.includes(String.fromCharCode(92))) {
       res.writeHead(404);
       return res.end();
     }
