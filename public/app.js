@@ -118,6 +118,11 @@
   if (/^[1-9]\d{7,14}$/.test(whatsapp) && whatsappFloat) {
     const message = "Hola, quiero consultar por la mochila Urbana 20. ¿Tienen disponibilidad y cuánto cuesta el envío?";
     whatsappFloat.href = "https://wa.me/" + whatsapp + "?text=" + encodeURIComponent(message);
+    whatsappFloat.removeAttribute("aria-disabled");
+    whatsappFloat.removeAttribute("role");
+    whatsappFloat.removeAttribute("title");
+    whatsappFloat.setAttribute("aria-label", "Consultar por WhatsApp");
+    whatsappFloat.target = "_blank";
     whatsappFloat.hidden = false;
   }
 
