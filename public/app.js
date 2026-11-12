@@ -1,6 +1,42 @@
 (function () {
   "use strict";
 
+
+  // Decorative motion is progressive enhancement and respects accessibility preferences.
+  const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduceMotion) {
+    const revealTargets = document.querySelectorAll(
+      ".lifestyle-photo, .lifestyle-copy, .section-heading, .benefit-card, .gallery, .product-info, .fit-intro, .fit-form, .purchase-inner > div, .faq-items"
+    );
+    if ("IntersectionObserver" in window) {
+      document.documentElement.classList.add("js-motion");
+      const observer = new IntersectionObserver((entries, currentObserver) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          currentObserver.unobserve(entry.target);
+        });
+      }, { threshold: 0.08, rootMargin: "0px 0px 60px 0px" });
+      revealTargets.forEach((element, index) => {
+        element.classList.add("reveal-on-scroll");
+        element.style.setProperty("--reveal-delay", String(index % 3 * 70) + "ms");
+        observer.observe(element);
+      });
+    }
+    const heroVisual = document.querySelector(".hero-visual");
+    if (heroVisual && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+      heroVisual.addEventListener("pointermove", (event) => {
+        const rect = heroVisual.getBoundingClientRect();
+        heroVisual.style.setProperty("--pointer-x", ((event.clientX - rect.left) / rect.width * 100).toFixed(1) + "%");
+        heroVisual.style.setProperty("--pointer-y", ((event.clientY - rect.top) / rect.height * 100).toFixed(1) + "%");
+      });
+      heroVisual.addEventListener("pointerleave", () => {
+        heroVisual.style.setProperty("--pointer-x", "50%");
+        heroVisual.style.setProperty("--pointer-y", "50%");
+      });
+    }
+  }
+
   const image = document.getElementById("gallery-main");
   const thumbnails = Array.from(document.querySelectorAll(".gallery-thumb"));
 
@@ -10,8 +46,12 @@
         const src = button.dataset.image;
         const alt = button.dataset.alt || "Mochila Urbana 20";
         if (!src || !src.startsWith("/assets/")) return;
+        image.classList.add("is-changing");
         image.src = src;
         image.alt = alt;
+        const finishChange = () => image.classList.remove("is-changing");
+        if (image.complete) requestAnimationFrame(finishChange);
+        else image.addEventListener("load", finishChange, { once: true });
         thumbnails.forEach((item) => {
           const current = item === button;
           item.classList.toggle("is-current", current);

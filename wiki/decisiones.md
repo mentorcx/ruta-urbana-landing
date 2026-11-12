@@ -36,3 +36,7 @@ Anotá fecha, necesidad, decisión aprobada, fuente o evidencia, archivos afecta
 **WhatsApp:** se incorporó un botón flotante que se activa cuando se configure el número comercial en `public/site-config.js`. No se inventó ningún número.
 
 **Pendientes:** verificar importe y destinatario de Mercado Pago, obtener foto real de la mochila gris, confirmar stock y condiciones comerciales y recibir el número de WhatsApp.
+
+## 2026-11-12 · Efectos visuales de la landing
+
+Se añaden animaciones de entrada discretas en la portada, aparición progresiva de secciones al desplazarse, brillo que sigue al cursor sobre el producto, transición al cambiar fotografías y microinteracciones en tarjetas, botones y selector. Se mantiene la legibilidad y no se incorporan dependencias externas. Los efectos se desactivan con `prefers-reduced-motion`; la landing permanece utilizable sin JavaScript. No se alteran precio, enlace de pago ni datos comerciales.
